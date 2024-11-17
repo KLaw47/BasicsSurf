@@ -52,12 +52,17 @@ const isGear = (gear) => {
 }
 
 const convertDataForAccounting = (product) => {
-    console.log("Product value:", product);
-    console.log("Type of product:", typeof product);
-    debugger;
+    // console.log("Product value:", product);
+    // console.log("Type of product:", typeof product); debugging logs.
     const upperDescription = product.description.toUpperCase()
-    const upperPrice = product.price.toUpperCase()
+    const upperPrice = product.price.toString() // uppercase does not work for numbers, lets make this a string so it will log.
     const upperType = product.type.toUpperCase()
+    // debugger;
+    const allUpperCase = {
+        description: upperDescription,
+        price: upperPrice,
+        type: upperType,
+    };
     return allUpperCase
 }
 
@@ -93,7 +98,9 @@ for (let product of inventory) {
     const identifiedProduct = convertDataForAccounting(product);
     inventoryArr.push(identifiedProduct)
 }
+for (let prod of inventoryArr) {
+    console.log(`${prod.description} - ${prod.type} - ${prod.price}`);
+}
 // const modifiedData = convertDataForAccounting(inventory)
-console.log(inventoryArr)
 
 
